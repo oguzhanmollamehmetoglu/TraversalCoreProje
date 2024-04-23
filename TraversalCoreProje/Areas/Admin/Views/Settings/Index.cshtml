@@ -1,0 +1,359 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Content -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6 col-12 mb-md-0 mb-4">
+                <div class="card">
+                    <h5 class="card-header">Giriş ve Kimlik Doğrulama</h5>
+                    <div class="card-body">
+                        <p>Bu alanda güvenli giriş yapabilmeniz için bu ayarı aktif etmelisiniz.</p>
+                        <!-- Connections -->
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>1-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-9 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">2 Adımlı Doğrulama</h6>
+                                    @* @if (item.Status == false)
+                                    {
+                                    <small class="text-muted">Pasif</small>
+                                    }
+                                    else
+                                    {
+                                    <small class="text-muted">Aktif</small>
+                                    } *@
+                                </div>
+                                <div class="col-3 text-end">
+                                    <div class="form-check form-switch">
+                                        @*  @if (item.Status == true)
+                                        {
+                                        <input class="form-check-input float-end" type="checkbox" id="toggleStatus_@item.SocialContactId" checked onchange="toggleStatus('@item.SocialContactId', this.checked)">
+                                        }
+                                        else
+                                        {
+                                        <input class="form-check-input float-end" type="checkbox" id="toggleStatus_@item.SocialContactId" onchange="toggleStatus('@item.SocialContactId', this.checked)">
+                                        } *@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Connections -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="card">
+                    <h5 class="card-header">Kullanıcı Yönetimi</h5>
+                    <div class="card-body">
+                        <p>Bu alanda kullanıcıları yönetin.</p>
+                        <!-- Social Accounts -->
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>1-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-8 col-sm-7 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Kullanıcıların Rollerini Yönetin</h6>
+                                </div>
+                                <div class="col-4 col-sm-5 text-end">
+                                    <a href="/Admin/User/Index/" type="button" class="btn btn-outline-primary">
+                                        <i class="bx bx-link">Yenile</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Social Accounts -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6 col-12 mb-md-0 mb-4">
+                <div class="card">
+                    <h5 class="card-header">Tema ve Özelleştirme</h5>
+                    <div class="card-body">
+                        <p>Bu alanda temanızı özelleştirebilirsiniz.</p>
+                        <!-- Connections -->
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>1-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-9 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Tema rengini değiştirin</h6>
+                                </div>
+                                <div class="col-3 text-end">
+                                    <div class="form-check form-switch">
+                                        <input type="color" id="colorPicker" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>2-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-9 mb-sm-0 mb-2">
+                                    <h6 class="mb-0 m-1">Logo değiştirin</h6>
+                                </div>
+                                <div class="col-3 text-end">
+                                    <div class="form-check form-switch">
+                                        <label class="btn btn-primary me-2 mb-4" tabindex="0">
+                                            <span class="d-none d-sm-block">Logo</span>
+                                            <i class="bx bx-upload d-block d-sm-none"></i>
+                                            <input type="file"
+                                                   class="account-file-input"
+                                                   hidden
+                                                   accept="image/png, image/jpeg" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Connections -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="card">
+                    <h5 class="card-header">Bildirim Yönetimi</h5>
+                    <div class="card-body">
+                        <p>Bu alanda kullanıcılara bildirim gönderebilirsiniz.</p>
+                        <!-- Connections -->
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>1-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-9 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Bakım ve onarım</h6>
+                                    @* @if (item.Status == false)
+                                    {
+                                    <small class="text-muted">Pasif</small>
+                                    }
+                                    else
+                                    {
+                                    <small class="text-muted">Aktif</small>
+                                    } *@
+                                </div>
+                                <div class="col-3 text-end">
+                                    <div class="form-check form-switch">
+                                        @*  @if (item.Status == true)
+                                        {
+                                        <input class="form-check-input float-end" type="checkbox" id="toggleStatus_@item.SocialContactId" checked onchange="toggleStatus('@item.SocialContactId', this.checked)">
+                                        }
+                                        else
+                                        {
+                                        <input class="form-check-input float-end" type="checkbox" id="toggleStatus_@item.SocialContactId" onchange="toggleStatus('@item.SocialContactId', this.checked)">
+                                        } *@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>2-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-9 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Bayram tatili</h6>
+                                    @* @if (item.Status == false)
+                                    {
+                                    <small class="text-muted">Pasif</small>
+                                    }
+                                    else
+                                    {
+                                    <small class="text-muted">Aktif</small>
+                                    } *@
+                                </div>
+                                <div class="col-3 text-end">
+                                    <div class="form-check form-switch">
+                                        @*  @if (item.Status == true)
+                                        {
+                                        <input class="form-check-input float-end" type="checkbox" id="toggleStatus_@item.SocialContactId" checked onchange="toggleStatus('@item.SocialContactId', this.checked)">
+                                        }
+                                        else
+                                        {
+                                        <input class="form-check-input float-end" type="checkbox" id="toggleStatus_@item.SocialContactId" onchange="toggleStatus('@item.SocialContactId', this.checked)">
+                                        } *@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Connections -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6 col-12 mb-md-0 mb-4">
+                <div class="card">
+                    <h5 class="card-header">Güvenlik Ayarları</h5>
+                    <div class="card-body">
+                        <p>Bu alanda güvenlik yönetimini sağlayabilirsiniz.</p>
+                        <!-- Social Accounts -->
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>1-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-8 col-sm-7 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Şifre yenile</h6>
+                                </div>
+                                <div class="col-4 col-sm-5 text-end">
+                                    <a href="/PasswordChange/ForgetPassword/" type="button" class="btn btn-outline-primary">
+                                        <i class="bx bx-link">Yenile</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>2-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-8 col-sm-7 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Oturum süreleri</h6>
+                                </div>
+                                <div class="col-4 col-sm-5 text-end">
+                                    <a href="" type="button" class="btn btn-outline-primary">
+                                        <i class="bx bx-link">Yenile</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>3-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-8 col-sm-7 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Oturum açma denemelerinin sınırlandır</h6>
+                                </div>
+                                <div class="col-4 col-sm-5 text-end">
+                                    <a href="" type="button" class="btn btn-outline-primary">
+                                        <i class="bx bx-link">Yenile</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Social Accounts -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="card">
+                    <h5 class="card-header">İçerik Yönetimi</h5>
+                    <div class="card-body">
+                        <p>Bu alanda içerik yönetin.</p>
+                        <!-- Social Accounts -->
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>1-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-8 col-sm-7 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Hakkımızda Yönetin</h6>
+                                </div>
+                                <div class="col-4 col-sm-5 text-end">
+                                    <a href="/Admin/About/Index/" type="button" class="btn btn-outline-primary">
+                                        <i class="bx bx-link">Yenile</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>2-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-8 col-sm-7 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Rehberler Yönetin</h6>
+                                </div>
+                                <div class="col-4 col-sm-5 text-end">
+                                    <a href="/Admin/Guide/Index/" type="button" class="btn btn-outline-primary">
+                                        <i class="bx bx-link">Yenile</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>3-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-8 col-sm-7 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Öne Çıkanlar Yönetin</h6>
+                                </div>
+                                <div class="col-4 col-sm-5 text-end">
+                                    <a href="/Admin/Feature/Index/" type="button" class="btn btn-outline-primary">
+                                        <i class="bx bx-link">Yenile</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>4-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-8 col-sm-7 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">İletişim Yönetin</h6>
+                                </div>
+                                <div class="col-4 col-sm-5 text-end">
+                                    <a href="/Admin/Contact/Index/" type="button" class="btn btn-outline-primary">
+                                        <i class="bx bx-link">Yenile</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <h4>5-</h4>
+                            </div>
+                            <div class="flex-grow-1 row">
+                                <div class="col-8 col-sm-7 mb-sm-0 mb-2 ">
+                                    <h6 class="mb-0 m-1">Rotalar Yönetin</h6>
+                                </div>
+                                <div class="col-4 col-sm-5 text-end">
+                                    <a href="/Admin/Destination/Index/" type="button" class="btn btn-outline-primary">
+                                        <i class="bx bx-link">Yenile</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Social Accounts -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Content -->
+<style>
+    body {
+        transition: background-color 0.5s ease;
+    }
+
+    input[type="color"] {
+        cursor: pointer;
+    }
+</style>
+<script>
+    function toggleStatus(contactId, isChecked) {
+        var url = isChecked ? "/Admin/SocialContact/ChangeToTrue/" : "/Admin/SocialContact/ChangeToFalse/";
+        window.location.href = url + contactId;
+    }
+    document.getElementById('colorPicker').addEventListener('change', function () {
+        document.body.style.backgroundColor = this.value;
+    });
+</script>

@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete
+@model List<Guide>
+@{
+    ViewData["Title"] = "GuideDetails";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<!-- about breadcrumb -->
+<section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container">
+            <h2 class="title">Rehber Detayları</h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="#url">Rehberler</a></li>
+                <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span>Rehber Detayları</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<!--/blog-->
+<section class="blog-post-main w3l-homeblock1">
+    <div class="blog-content-inf pb-5">
+        <div class="container pb-lg-4">
+            @foreach (var item in Model)
+            {
+                <div class="single-post-image">
+                    <div class="post-content" style="display:flex; justify-content:center; align-items:center;">
+                        <img src="/userimages/@item.Image" class="radius-image img-fluid mb-5 my-5" alt="" />
+                    </div>
+                </div>
+                <div class="single-post-content">
+                    <p class="alphabet mb-4">
+                        <span class="big-letter">@item.Description2[0]</span>@item.Description2.Substring(1, 100)
+                    </p>
+                    <p class="mb-4">
+                        @item.Description2.Substring(100)
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

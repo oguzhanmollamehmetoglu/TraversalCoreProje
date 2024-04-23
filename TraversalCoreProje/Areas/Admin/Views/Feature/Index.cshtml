@@ -1,0 +1,46 @@
+﻿@using EntityLayer.Concrete
+@model List<Feature>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card">
+    <h1 class="card-header">Öne Çıkanların Listesi</h1>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Görsel</th>
+                    <th>Gün Gece</th>
+                    <th>Fiyat</th>
+                    <th>Düzenle</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td><img src="/userimages/@item.Image" height="50" width="50" /></td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td><a href="/Admin/Feature/EditFeature/@item.FeatureID" class="btn btn-outline-success">Düzenle</a></td>
+                    </tr>
+                    @foreach (var item2 in item.Feature2)
+                    {
+                        count++;
+                        <tr>
+                            <td>@count</td>
+                            <td><img src="/userimages/@item2.Image" height="50" width="50" /></td>
+                            <td>@item2.Title</td>
+                            <td>@item2.Description</td>
+                            <td><a href="/Admin/Feature/EditFeature2/@item2.Feature2ID" class="btn btn-outline-success">Düzenle</a></td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</div>

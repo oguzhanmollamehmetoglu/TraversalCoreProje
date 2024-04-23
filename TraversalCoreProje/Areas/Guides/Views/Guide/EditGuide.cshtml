@@ -1,0 +1,87 @@
+﻿@model DTOLayer.DTOs.GuideDTOs.GuideProfileEditViewDTO
+@{
+    ViewData["Title"] = "EditGuide";
+    Layout = "~/Views/Shared/_GuideLayout.cshtml";
+}
+
+<div class="content-body">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header" style="margin-bottom: -25px;">
+                    <h4 class="card-title">Rehber İçerik Güncelleme Sayfası</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <p class="card-text">Web sitemiz traversal üzerinde rehber içerik günceleme sayfası.</p>
+                        <form method="post" enctype="multipart/form-data">
+                            @Html.HiddenFor(x => x.GuideID)
+                            <div class="form-group">
+                                @Html.Label("Ad-Soyad")
+                                <input type="text" asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                @Html.Label("İnstagram Url")
+                                <input type="text" asp-for="InstagramUrl" class="form-control" />
+                                <span asp-validation-for="InstagramUrl" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                @Html.Label("Küçük Resim")
+                                @if (Model.Image != null)
+                                {
+                                    <img width="60" height="60" src="/userimages/@Model.Image" />
+                                    <input type="hidden" asp-for="Image" class="form-control" />
+                                }
+                                <input type="file" asp-for="ImageFile" class="form-control" />
+                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                @Html.Label("Twitter Url")
+                                <input type="text" asp-for="TwitterUrl" class="form-control" />
+                                <span asp-validation-for="TwitterUrl" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                @Html.Label("Görsel")
+                                @if (Model.GuideListImage != null)
+                                {
+                                    <img width="60" height="60" src="/userimages/@Model.GuideListImage" />
+                                    <input type="hidden" asp-for="GuideListImage" class="form-control" />
+                                }
+                                <input type="file" asp-for="ImageFile2" class="form-control" />
+                                <span asp-validation-for="ImageFile2" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                @Html.Label("Şehir")
+                                <textarea cols="30" rows="5" class="form-control" asp-for="Description"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                @Html.Label("Açıklama")
+                                <textarea cols="30" rows="5" class="form-control" asp-for="Description2"></textarea>
+                                <span asp-validation-for="Description2" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <button class="btn btn-outline-primary">Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

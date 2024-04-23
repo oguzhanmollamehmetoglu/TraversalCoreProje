@@ -1,0 +1,50 @@
+﻿@model DTOLayer.DTOs.AboutDTOs.AboutViewDTO
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">Hakkımızda Güncelleme Sayfası</h1>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(x => x.AboutID)
+            <div class="form-group">
+                @Html.Label("Başlık")
+                <input type="text" asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Açıklama")
+                <textarea cols="30" rows="5" class="form-control" asp-for="Description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Resim")
+                @if (Model.Image1 != null)
+                {
+                    <img width="60" height="60" src="/userimages/@Model.Image1" />
+                    <input type="hidden" asp-for="Image1" class="form-control" />
+                }
+                <input type="file" asp-for="ImageFile" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Başlık2")
+                <input type="text" asp-for="Title2" class="form-control" />
+                <span asp-validation-for="Title2" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Neden biz?")
+                <textarea cols="30" rows="5" class="form-control" asp-for="Description2"></textarea>
+                <span asp-validation-for="Description2" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <button class="btn btn-outline-primary">Güncelle</button>
+        </form>
+    </div>
+</div>

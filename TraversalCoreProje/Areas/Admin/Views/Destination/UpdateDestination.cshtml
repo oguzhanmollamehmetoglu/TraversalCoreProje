@@ -1,0 +1,107 @@
+﻿@model DTOLayer.DTOs.DestinationsDTOs.DestinationViewDTO
+@{
+    ViewData["Title"] = "UpdateDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">Rota Güncelleme Sayfası</h1>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(x => x.DestiantionID)
+            <div class="form-group">
+                @Html.Label("Şehir")
+                <input type="text" asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Gün Gece")
+                <input type="text" asp-for="DayNight" class="form-control" />
+                <span asp-validation-for="DayNight" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Tarih-Saat")
+                <input type="datetime-local" asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Fiyat")
+                <input type="text" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Ana Görsel")
+                @if (Model.Image != null)
+                {
+                    <img width="60" height="60" src="/userimages/@Model.Image" />
+                    <input type="hidden" asp-for="Image" class="form-control" />
+                }
+                <input type="file" asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Kapasite")
+                <input type="text" asp-for="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Kapak Görseli")
+                @if (Model.Image != null)
+                {
+                    <img width="60" height="60" src="/userimages/@Model.CoverImage" />
+                    <input type="hidden" asp-for="CoverImage" class="form-control" />
+                }
+                <input type="file" asp-for="CoverImageFile" class="form-control" />
+                <span asp-validation-for="CoverImage" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Açıklama")
+                <input type="text" asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Görsel 2")
+                @if (Model.Image != null)
+                {
+                    <img width="60" height="60" src="/userimages/@Model.Image2" />
+                    <input type="hidden" asp-for="Image2" class="form-control" />
+                }
+                <input type="file" asp-for="Image2File" class="form-control" />
+                <span asp-validation-for="Image2" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Detay 1")
+                <textarea cols="30" rows="5" class="form-control" asp-for="Details1"></textarea>
+                <span asp-validation-for="Details1" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Detay 2")
+                <textarea cols="30" rows="5" class="form-control" asp-for="Details2"></textarea>
+                <span asp-validation-for="Details2" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Rehber Ekle")
+                <select asp-for="GuideID" class="form-control">
+                    <option value="">Seçiniz</option>
+                    @foreach (var item in Model.guides)
+                    {
+                        <option value="@item.GuideID">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <br />
+            <button class="btn btn-outline-primary">Güncelle</button>
+        </form>
+    </div>
+</div>

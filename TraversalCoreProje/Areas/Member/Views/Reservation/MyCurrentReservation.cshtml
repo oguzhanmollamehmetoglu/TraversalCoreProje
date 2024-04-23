@@ -1,0 +1,103 @@
+﻿@using EntityLayer.Concrete
+@model List<Reservation>
+@{
+    ViewData["Title"] = "MyCurrentReservation";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+    int count = 0;
+}
+
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-wrapper-before"></div>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header" style="margin-bottom: -25px;">
+                            <h4 class="card-title">Aktif Rezervasyonlarım</h4>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                <p class="card-text">Web sitemiz traversal üzerinde yapmış olduğunuz aktif rezervasyonlarınız listlenmektedir.</p>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Lokasyon</th>
+                                                <th>Kişi Sayısı</th>
+                                                <th>Durum</th>
+                                                <th>Detay</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                count++;
+                                                <tr>
+                                                    <td>@count</td>
+                                                    <td>@item.Destiantion.City</td>
+                                                    <td>@item.PersonCount</td>
+                                                    <td>@item.Status</td>
+                                                    <td>
+                                                        <p class="demo-inline-spacing">
+                                                            <a class="btn btn-primary me-1"
+                                                               data-bs-toggle="collapse"
+                                                               href="#collapseExample-@item.ReservationID"
+                                                               role="button"
+                                                               aria-expanded="false"
+                                                               aria-controls="collapseExample-@item.ReservationID">
+                                                                Detaylar
+                                                            </a>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <div class="collapse" id="collapseExample-@item.ReservationID">
+                                                            <div class="d-grid d-sm-flex p-3 border">
+                                                                <ul>
+                                                                    <h6>Onaylanmış rezervasyonunuz ile ilgili detaylar...</h6>
+                                                                    <li>
+                                                                        <h6>Nasıl?</h6>
+                                                                        Sizleri eşisiz bir seyahat hizmeti sunmak bizim için oldukça önemlidir.Kısaca detaylar;<br />
+                                                                        Turlarımız için acentemizde toplanıp ödeme işlemleri gerçekleştirilir,<br />
+                                                                        ödeme işlemi gerçekleşen müşterilerimize arabada yer ayarlanır, araba da gerekli sayım yapıldıktan sonra yolculuk başlar.<br />
+                                                                        <h6>Uyarı!!</h6>
+                                                                        Eğer ödeme işlemi yapmazsanız tura katılım gösteremezsiniz ve arabaya zamanında gelmezseniz,<br />
+                                                                        gecikme süreniz en fazla <b>15DK-30DK</b> arası sizi araç bekleyecektir.
+                                                                    </li>
+                                                                    <li>
+                                                                        <h6>Ne zaman?</h6>
+                                                                        @(((DateTime)item.ReservationDate).ToString("f"))
+                                                                    </li>
+                                                                    <li>
+                                                                        <h6>Nerede?</h6>
+                                                                        Traversal acentemiz konumumuzdan bizi bulabilirsiniz.
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

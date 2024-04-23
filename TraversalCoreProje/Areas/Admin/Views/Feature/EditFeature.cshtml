@@ -1,0 +1,38 @@
+﻿@model DTOLayer.DTOs.FeatureDTOs.FeatureViewDTO
+@{
+    ViewData["Title"] = "EditFeature";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">Öne Çıkanlar Güncelleme Sayfası</h1>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(x => x.FeatureID)
+            <div class="form-group">
+                @Html.Label("Gün-Gece")
+                <input type="text" asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Fiyat")
+                <input type="text" asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Resim")
+                @if (Model.Image != null)
+                {
+                    <img width="60" height="60" src="/userimages/@Model.Image" />
+                    <input type="hidden" asp-for="Image" class="form-control" />
+                }
+                <input type="file" asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <br />
+            <button class="btn btn-outline-primary">Güncelle</button>
+        </form>
+    </div>
+</div>

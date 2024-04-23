@@ -1,0 +1,30 @@
+﻿@model List<Newslater>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card">
+    <h1 class="card-header">Mail Listesi</h1>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Mail</th>
+                    <th>Sil</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.Mail</td>
+                        <td><a href="/Admin/Newslater/DeleteNewslater/@item.NewslaterID" class="btn btn-outline-danger">Sil</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

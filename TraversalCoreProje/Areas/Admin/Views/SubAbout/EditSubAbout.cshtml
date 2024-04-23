@@ -1,0 +1,25 @@
+﻿@model EntityLayer.Concrete.SubAbout
+@{
+    ViewData["Title"] = "EditSubAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">SubAbout Güncelleme Sayfası</h1>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(x => x.SubAboutID)
+            <div class="form-group">
+                @Html.Label("Başlık")
+                <input type="text" asp-for="Title" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Açıklama")
+                <textarea cols="30" rows="5" class="form-control" asp-for="Description"></textarea>
+            </div>
+            <br />
+            <button class="btn btn-outline-primary">Güncelle</button>
+        </form>
+    </div>
+</div>

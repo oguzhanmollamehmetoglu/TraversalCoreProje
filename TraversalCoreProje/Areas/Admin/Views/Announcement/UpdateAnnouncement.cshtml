@@ -1,0 +1,23 @@
+﻿@model AnnouncementUpdateDTO
+@{
+    ViewData["Title"] = "UpdateAnnouncement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">Duyuru güncelleme sayfası</h1>
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" asp-for="AnnouncementID" />
+            <label>Duyuru Başlığı</label>
+            <input type="text" asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+            <br />
+            <label>Duyuru İçerik</label>
+            <input type="text" asp-for="Content" class="form-control" />
+            <span asp-validation-for="Content" class="text-danger"></span>
+            <br />
+            <button class="btn btn-outline-primary">Duyuruyu Güncelle</button>
+        </form>
+    </div>
+</div>

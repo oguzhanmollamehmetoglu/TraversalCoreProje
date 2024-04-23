@@ -1,0 +1,38 @@
+﻿@model List<Contact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card">
+    <h1 class="card-header">İletişim Bilgileri Sayfası</h1>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Açıklama</th>
+                    <th>Mail</th>
+                    <th>Telefon</th>
+                    <th>Adres</th>
+                    <th>Map</th>
+                    <th>Düzenle</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.Description</td>
+                        <td>@item.Mail</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Adress</td>
+                        <td>@item.MapLocation</td>
+                        <td><a href="/Admin/Contact/EditContact/@item.ContactID" class="btn btn-outline-success">Düzenle</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

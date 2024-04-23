@@ -1,0 +1,45 @@
+﻿@model DTOLayer.DTOs.GuideDTOs.GuideViewDTO
+@{
+    ViewData["Title"] = "GuideList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card">
+    <h1 class="card-header">Rehber Listesi</h1>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Görsel</th>
+                    <th>Ad-Soyad</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Email</th>
+                    <th>Cinsiyet</th>
+                    <th>Rehber Ekle</th>
+                </tr>
+                @foreach (var item in Model.appUsers)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td><img src="/userimages/@item.İmageUrl" height="50" width="50" /></td>
+                        <td>@item.Name @item.SurName</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Gender</td>
+                        @if (Model.guides.Any(g => g.AppUserID == item.Id))
+                        {
+                            <td><p>Rehber Eklendi</p></td>
+                        }
+                        else
+                        {
+                            <td><a href="/Admin/Guide/AddGuide/@item.Id" class="btn btn-outline-primary">Yeni Rehber Girişi</a></td>
+                        }
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

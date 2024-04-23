@@ -1,0 +1,20 @@
+﻿@model DTOLayer.DTOs.AppRoleDTOs.UpdateRoleViewDTO
+@{
+    ViewData["Title"] = "UpdateRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">Role Düzenleme Sayfası</h1>
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" asp-for="RoleID" />
+            <label>Role Adını Giriniz</label>
+            <input type="text" class="form-control" asp-for="RoleName" />
+            <span class="text-danger" asp-validation-for="RoleName"></span>
+            <br />
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            <button class="btn btn-primary">Rolü Güncele</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+﻿@using EntityLayer.Concrete
+@model List<Reservation>
+@{
+    ViewData["Title"] = "ReservationList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card">
+    <h1 class="card-header">Onay Bekleyen Rezervasyon Listesi</h1>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Kullanıcı</th>
+                    <th>Rota</th>
+                    <th>Kişi Sayısı</th>
+                    <th>Tarih</th>
+                    <th>Açıklama</th>
+                    <th>Sil</th>
+                    <th>Durumu</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    @if (item.Status == "Onay Bekliyor" && item.Status != "Geçmiş Rezervasyon" && item.Status != "Onaylandı" && item.Status != null)
+                    {
+                        count++;
+                        <tr>
+                            <td>@count</td>
+                            <td>@item.AppUser.UserName</td>
+                            <td>@item.Destiantion.City</td>
+                            <td>@item.PersonCount</td>
+                            <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</td>
+                            <td>@item.Description</td>
+                            <td><a href="/Admin/Reservation/ReservationList/DeleteReservation/@item.ReservationID" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a style="text-align:center;" href="/Admin/Reservation/ReservationList/Approval/@item.ReservationID" class="btn btn-outline-primary">Onayla</a></td>
+                        </tr>
+                    }
+
+                }
+
+            </table>
+        </div>
+
+    </div>
+</div>
+<br />
+<div class="card">
+    <h1 class="card-header">Onaylanan Rezervasyon Listesi</h1>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Kullanıcı</th>
+                    <th>Rota</th>
+                    <th>Kişi Sayısı</th>
+                    <th>Tarih</th>
+                    <th>Açıklama</th>
+                    <th>Sil</th>
+                    <th>Durumu</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    @if (item.Status == "Onaylandı" && item.Status != "Geçmiş Rezervasyon" && item.Status != "Onay Bekliyor" && item.Status != null)
+                    {
+                        count++;
+                        <tr>
+                            <td>@count</td>
+                            <td>@item.AppUser.UserName</td>
+                            <td>@item.Destiantion.City</td>
+                            <td>@item.PersonCount</td>
+                            <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</td>
+                            <td>@item.Description</td>
+                            <td><a href="/Admin/Reservation/ReservationList/DeleteReservation/@item.ReservationID" class="btn btn-outline-danger">Sil</a></td>
+                            <td><p style="text-align:center; margin:unset;" class="text-success">Onaylandı</p></td>
+                        </tr>
+                    }
+
+                }
+            </table>
+        </div>
+
+    </div>
+</div>
+<br />
+<div class="card">
+    <h1 class="card-header">Geçmiş Rezervayson Listesi</h1>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Kullanıcı</th>
+                    <th>Rota</th>
+                    <th>Kişi Sayısı</th>
+                    <th>Tarih</th>
+                    <th>Açıklama</th>
+                    <th>Sil</th>
+                    <th>Durumu</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    @if (item.Status == "Geçmiş Rezervasyon" && item.Status != "Onaylandı" && item.Status != "Onay Bekliyor" && item.Status != null)
+                    {
+                        count++;
+                        <tr>
+                            <td>@count</td>
+                            <td>@item.AppUser.UserName</td>
+                            <td>@item.Destiantion.City</td>
+                            <td>@item.PersonCount</td>
+                            <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</td>
+                            <td>@item.Description</td>
+                            <td><a href="/Admin/Reservation/ReservationList/DeleteReservation/@item.ReservationID" class="btn btn-outline-danger">Sil</a></td>
+                            <td><p style="text-align:center; margin:unset;" class="text-dark">Geçmiş</p></td>
+                        </tr>
+                    }
+
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@model DTOLayer.DTOs.MailDTOs.MailRequestDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">Yeni mail gönderme sayfası</h1>
+    <div class="card-body">
+        <form method="post">
+            <div class="form-group">
+                @Html.Label("Alıcının mail adresi")
+                <input type="text" asp-for="ReceiverMail" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Konu başlığı")
+                <input type="text" asp-for="Subject" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Açıklama")
+                <textarea cols="30" rows="5" class="form-control" asp-for="Body"></textarea>
+            </div>
+            <br />
+            <button class="btn btn-outline-primary">Mail Gönder</button>
+        </form>
+    </div>
+</div>

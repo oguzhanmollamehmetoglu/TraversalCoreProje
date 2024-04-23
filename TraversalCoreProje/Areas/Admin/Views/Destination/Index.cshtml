@@ -1,0 +1,40 @@
+﻿@using EntityLayer.Concrete
+@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">Tur Rotaları</h1>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Şehir</th>
+                    <th>Fiyat</th>
+                    <th>Kapasite</th>
+                    <th>Tarih - Saat</th>
+                    <th>Sitede Gör</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.DestiantionID</td>
+                        <td>@item.City</td>
+                        <td>@item.Price</td>
+                        <td>@item.Capacity</td>
+                        <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy HH-mm"))</td>
+                        <td><a href="/Destination/DestinationDetails/@item.DestiantionID" class="btn btn-outline-info">Sitede Gör</a></td>
+                        <td><a href="/Admin/Destination/DeleteDestination/@item.DestiantionID" class="btn btn-outline-danger">Sil</a></td>
+                        <td><a href="/Admin/Destination/UpdateDestination/@item.DestiantionID" class="btn btn-outline-success">Güncelle</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <a href="/Admin/Destination/AddDestination" class="btn btn-outline-primary">Yeni Tur Rotası</a>
+    </div>
+</div>

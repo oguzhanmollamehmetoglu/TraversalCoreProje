@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+@await Html.PartialAsync("/Views/GuideLayoutPartial/_HeaderPartial.cshtml")
+<body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-color="bg-chartbg" data-col="2-columns">
+
+    <!-- fixed-top-->
+    @await Html.PartialAsync("/Views/GuideLayoutPartial/_NavbarPartial.cshtml")
+    <!-- Sidebar-->
+    @await Html.PartialAsync("/Views/GuideLayoutPartial/_SidebarPartial.cshtml")
+    <!--Body-->
+    <div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-wrapper-before"></div>
+            <div class="content-header row"></div>
+            <div class="content-body" style="padding-top: 20px;">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+    @await Html.PartialAsync("/Views/GuideLayoutPartial/_FooterPartial.cshtml")
+
+    @await Html.PartialAsync("/Views/GuideLayoutPartial/_ScriptPartial.cshtml")
+</body>
+</html>

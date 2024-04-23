@@ -1,0 +1,24 @@
+﻿@using EntityLayer.Concrete
+@model List<Reservation>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+
+    @foreach (var item in ViewBag.model)
+    {
+        <div class="col-md-6 col-xl-4">
+            <a href="/Admin/Reservation/ReservationList/@item.CityId">
+                <div class="card text-white mb-3" style="background-color:darkslateblue; text-align: center;" onmouseover="this.style.backgroundColor='gray'" onmouseout="this.style.backgroundColor='darkslateblue'">
+                    <h2 class="card-header" style="color: whitesmoke;">@item.CityName</h2>
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Rezervasyon Sayısı</h5>
+                        <h2 class="card-text" style="color:floralwhite;">@item.ReservationCount</h2>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

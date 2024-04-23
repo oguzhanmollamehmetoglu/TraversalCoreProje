@@ -1,0 +1,22 @@
+﻿@model DTOLayer.DTOs.ContactDTOs.ReplyMessageDTO
+@{
+    ViewData["Title"] = "ShowMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">Cevap Sayfası</h1>
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" asp-for="ReplyId" />
+            <label>Mesajın İçeriği</label>
+            <textarea style="height:100px;" class="form-control" asp-for="MessageBody" readonly>@Model.MessageBody</textarea>
+            <br />
+            <label>Mesaja Cevap</label>
+            <textarea style="height:100px;" class="form-control" asp-for="Reply"></textarea>
+            <span class="text-danger" asp-validation-for="Reply"></span>
+            <br />
+            <button class="btn btn-outline-primary">Cevapla</button>
+        </form>
+    </div>
+</div>

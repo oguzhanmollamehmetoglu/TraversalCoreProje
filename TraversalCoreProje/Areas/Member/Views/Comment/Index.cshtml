@@ -1,0 +1,86 @@
+﻿@model List<Comment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+    int count = 0;
+}
+
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-wrapper-before"></div>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header" style="margin-bottom: -25px;">
+                            <h4 class="card-title">Yorumlarım</h4>
+                            <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                <p class="card-text">Web sitemiz traversal üzerinde yapmış olduğunuz yorumlar listlenmektedir.</p>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Rota</th>
+                                                <th>Tarih</th>
+                                                <th>Detay</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                count++;
+                                                <tr>
+                                                    <td>@count</td>
+                                                    <td>@item.Destiantion.City</td>
+                                                    <td>@(((DateTime)item.CommentDate).ToString("dd-MMM-yyyy"))</td>
+                                                    <td>
+                                                        <p class="demo-inline-spacing">
+                                                            <a class="btn btn-primary me-1"
+                                                               data-bs-toggle="collapse"
+                                                               href="#collapseExample-@item.CommentID"
+                                                               role="button"
+                                                               aria-expanded="false"
+                                                               aria-controls="collapseExample-@item.CommentID">
+                                                                Detaylar
+                                                            </a>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <div class="collapse" id="collapseExample-@item.CommentID">
+                                                            <div class="d-grid d-sm-flex p-3 border">
+                                                                <ul>
+                                                                    <h6>Yorumunuz:</h6>
+                                                                    <li>
+                                                                       <p>@item.CommentContent</p>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

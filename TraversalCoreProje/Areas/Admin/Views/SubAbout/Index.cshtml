@@ -1,0 +1,33 @@
+﻿@using EntityLayer.Concrete
+@model List<SubAbout>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="card">
+    <h1 class="card-header">SubAbout Kısmının Listesi</h1>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Başlık</th>
+                    <th>Açıklama</th>
+                    <th>Düzenle</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td><a href="/Admin/SubAbout/EditSubAbout/@item.SubAboutID" class="btn btn-outline-success">Düzenle</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

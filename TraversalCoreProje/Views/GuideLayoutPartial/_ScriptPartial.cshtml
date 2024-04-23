@@ -1,0 +1,84 @@
+﻿ <!-- BEGIN VENDOR JS-->
+<script src="~/guides/theme-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+<!-- BEGIN VENDOR JS-->
+<!-- BEGIN PAGE VENDOR JS-->
+<script src="~/guides/theme-assets/vendors/js/charts/chartist.min.js" type="text/javascript"></script>
+<!-- END PAGE VENDOR JS-->
+<!-- BEGIN CHAMELEON  JS-->
+<script src="~/guides/theme-assets/js/core/app-menu-lite.js" type="text/javascript"></script>
+<script src="~/guides/theme-assets/js/core/app-lite.js" type="text/javascript"></script>
+<!-- END CHAMELEON  JS-->
+<!-- BEGIN PAGE LEVEL JS-->
+<script src="~/guides/theme-assets/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL JS-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Sayfa yüklendiğinde aktif menüyü kontrol et
+        var currentPath = window.location.pathname;
+        var menuElements = document.querySelectorAll('.navigation-main .nav-item');
+
+        menuElements.forEach(function (item) {
+            var link = item.querySelector('a').getAttribute('href');
+            if (currentPath === link) {
+                item.classList.add('active');
+                localStorage.setItem('activeMenuItem', link);
+            }
+        });
+    });
+
+    function activateMenu(element) {
+        // Önceki aktif öğeyi temizle
+        var previousActive = document.querySelector('.navigation-main .nav-item.active');
+        if (previousActive) {
+            previousActive.classList.remove('active');
+        }
+
+        // Yeni öğeyi aktif hale getir
+        element.parentElement.classList.add('active');
+
+        // Tıklanan menü öğesini localStorage'de sakla
+        var menuItemId = element.getAttribute('href');
+        localStorage.setItem('activeMenuItem', menuItemId);
+    }
+</script>
+<!-- JavaScript kodu -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // İkinci dropdown listesini tetikleyen elementi seç
+        var dropdownToggle2 = document.querySelector('.dropdown-toggle2');
+
+        // İkinci dropdown listesini seç
+        var dropdownMenu2 = document.querySelector('.dropdown-menu2');
+
+        // İkinci dropdown listesinin linklerini seç
+        var dropdownItems2 = dropdownMenu2.querySelectorAll('.dropdown-item');
+
+        // Dropdown tetikleyiciye tıklandığında
+        dropdownToggle2.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // İkinci dropdown menüsünün görünürlüğünü tersine çevir
+            dropdownMenu2.classList.toggle('show');
+        });
+
+        // Dışarı tıklama olayını dinle (ikinci dropdown menüsünün kapatılması için)
+        document.addEventListener('click', function (event) {
+            // Eğer tıklanan element ikinci dropdown menüsü veya tetikleyici değilse
+            if (!dropdownMenu2.contains(event.target) && !dropdownToggle2.contains(event.target)) {
+                // İkinci dropdown menüsünün görünürlüğünü kapat
+                dropdownMenu2.classList.remove('show');
+            }
+        });
+
+        // İkinci dropdown listesinin linklerine tıklama olaylarını ekle
+        dropdownItems2.forEach(function (item) {
+            item.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                // Seçilen dilin bağlantısına yönlendir
+                var link = item.getAttribute('href');
+                window.location.href = link;
+            });
+        });
+    });
+</script>

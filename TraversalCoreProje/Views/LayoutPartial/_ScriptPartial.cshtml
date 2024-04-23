@@ -1,0 +1,102 @@
+﻿<!-- Template JavaScript -->
+<script src="~/Traversal-Liberty/assets/js/jquery-3.3.1.min.js"></script>
+<script src="~/Traversal-Liberty/assets/js/theme-change.js"></script>
+<!--/slider-js-->
+<script src="~/Traversal-Liberty/assets/js/jquery.min.js"></script>
+<script src="~/Traversal-Liberty/assets/js/modernizr-2.6.2.min.js"></script>
+<script src="~/Traversal-Liberty/assets/js/jquery.zoomslider.min.js"></script>
+<!--//slider-js-->
+<script src="~/Traversal-Liberty/assets/js/owl.carousel.js"></script>
+<!-- script for tesimonials carousel slider -->
+<script>
+    $(document).ready(function () {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: false,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                },
+                1000: {
+                    items: 1,
+                    nav: false,
+                    loop: true
+                }
+            }
+        })
+    })
+</script>
+<!-- //script for tesimonials carousel slider -->
+<!-- stats number counter-->
+<script src="~/Traversal-Liberty/assets/js/jquery.waypoints.min.js"></script>
+<script src="~/Traversal-Liberty/assets/js/jquery.countup.js"></script>
+<script>
+    $('.counter').countUp();
+</script>
+<!-- //stats number counter -->
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+</script>
+<!--//MENU-JS-->
+<script src="~/Traversal-Liberty/assets/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Sayfa yüklendiğinde aktif menüyü kontrol et
+        var currentPath = window.location.pathname;
+        var menuElements = document.querySelectorAll('.navbar-nav .nav-item');
+
+        menuElements.forEach(function (item) {
+            var link = item.querySelector('a').getAttribute('href');
+            if (currentPath === link) {
+                item.classList.add('active');
+                localStorage.setItem('activeMenuItem', link);
+            }
+        });
+    });
+
+    function activateMenu(element) {
+        // Önceki aktif öğeyi temizle
+        var previousActive = document.querySelector('.navbar-nav .nav-item.active');
+        if (previousActive) {
+            previousActive.classList.remove('active');
+        }
+
+        // Yeni öğeyi aktif hale getir
+        element.parentElement.classList.add('active');
+
+        // Tıklanan menü öğesini localStorage'de sakla
+        var menuItemId = element.getAttribute('href');
+        localStorage.setItem('activeMenuItem', menuItemId);
+    }
+</script>

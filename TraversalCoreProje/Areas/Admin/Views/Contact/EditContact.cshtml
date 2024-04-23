@@ -1,0 +1,46 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    ViewData["Title"] = "EditContact";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">İletişim Güncelleme Sayfası</h1>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(x => x.ContactID)
+            <div class="form-group">
+                @Html.Label("Email")
+                <input type="text" asp-for="Mail" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Telefon")
+                <input type="text" asp-for="Phone" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Harita Kodu")
+                <p>
+                    Bu kısımda <a href="https://www.google.com/maps">Google Map</a> Sitesine gidiniz;<br />
+                    İşletmenizin konumunu seçiniz,<br />
+                    Paylaş butonuna tıklayınız,<br />
+                    Harita yerleştirme kodunu src="" iki tırnak içinde bulunan alanı kopyalayınız ve bu alana yapıştırınız.
+                </p><br />
+                <textarea cols="30" rows="5" class="form-control" asp-for="MapLocation"></textarea>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Adres")
+                <textarea cols="30" rows="5" class="form-control" asp-for="Adress"></textarea>
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Açıklama")
+                <textarea cols="30" rows="5" class="form-control" asp-for="Description"></textarea>
+            </div>
+            <br />
+            <button class="btn btn-outline-primary">Güncelle</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <h1 class="card-header">Hakkımızda Bilgileri</h1>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>#</th>
+                    <th>Fotoğraf</th>
+                    <th>Başlık</th>
+                    <th>Açıklama</th>
+                    <th>Başlık2</th>
+                    <th>Neden Biz?</th>
+                    <th>Güncelle</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.AboutID</td>
+                        <td><img src="/userimages/@item.Image1" height="50" width="50" /></td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.Title2</td>
+                        <td>@item.Description2</td>
+                        <td><a href="/Admin/About/UpdateAbout/@item.AboutID" class="btn btn-outline-success">Güncelle</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,131 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+@{
+    var rolename = Context.User.Identity.Name;
+    var isAuthenticated = Context.User.Identity.IsAuthenticated;
+    var Admin = false;
+
+    if (isAuthenticated)
+    {
+        var user = await UserManager.GetUserAsync(Context.User);
+        ViewBag.v1 = user.Name;
+        ViewBag.v2 = user.SurName;
+        ViewBag.v3 = user.İmageUrl;
+        ViewBag.id = user.Id;
+        ViewBag.gender = user.Gender;
+        Admin = await UserManager.IsInRoleAsync(user, "Admin");
+    }
+}
+<nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+     id="layout-navbar">
+    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+            <i class="bx bx-menu bx-sm"></i>
+        </a>
+    </div>
+    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+        <!-- Search -->
+        <div class="navbar-nav align-items-center">
+            <div class="nav-item d-flex align-items-center">
+                <i class="bx bx-search fs-4 lh-0"></i>
+                <input type="text" class="form-control border-0 shadow-none" placeholder="Aranacak kelimeyi giriniz..." aria-label="Ara..." />
+            </div>
+        </div>
+        <!-- /Search -->
+        <ul class="navbar-nav flex-row align-items-center ms-auto">
+            <!-- Place this tag where you want the button to render. -->
+            <li class="nav-item lh-1 me-3">
+                @if (ViewBag.gender == "Erkek")
+                {
+                    <h6 style="margin-top: 1rem; text-align:center;">Hoş geldiniz @ViewBag.v1 <span>Bey</span></h6>
+                }
+                else if (ViewBag.gender == "Kadın")
+                {
+                    <h6 style="margin-top: 1rem; text-align:center;">Hoş geldiniz @ViewBag.v1 <span>Hanım</span></h6>
+                }
+                else
+                {
+                    <h6 style="margin-top: 1rem; text-align:center;">Hoş geldin @ViewBag.v1 </h6>
+                }
+
+            </li>
+            @if (!string.IsNullOrEmpty(rolename))
+            {
+                if (Admin)
+                {
+                    <!-- User -->
+                    <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                            <div class="avatar avatar-online">
+                                <img src="/userimages/@ViewBag.v3" class="w-px-40 h-px-40 rounded-circle" />
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item" href="/Admin/User/AdminProfile/@ViewBag.id">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <div class="avatar avatar-online">
+                                                <img src="/userimages/@ViewBag.v3" class="w-px-40 h-px-40 rounded-circle" />
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <span class="fw-semibold d-block">@ViewBag.v1 @ViewBag.v2</span>
+                                            <small class="text-muted">Admin</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dropdown-divider"></div>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/Admin/User/EditUser/@ViewBag.id">
+                                    <i class="bx bx-user me-2"></i>
+                                    <span class="align-middle">Profilim</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/Admin/ContactUs/Index/">
+                                    <span class="d-flex align-items-center align-middle">
+                                        <i class="flex-shrink-0 bx bx-message me-2"></i>
+                                        <span class="flex-grow-1 align-middle">Mesaj</span>
+                                        <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">2</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/Admin/Settings/Index/">
+                                    <i class="bx bx-cog me-2"></i>
+                                    <span class="align-middle">Ayarlar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dropdown-divider"></div>
+                            </li>
+                            <li>
+                                @if (!string.IsNullOrEmpty(rolename))
+                                {
+                                    <form method="post" class="dropdown-item" action="/Login/Logout/">
+                                        <button class="align-middle" style="border: none; background: none;">
+                                            <i class="bx bx-power-off me-2"></i>Çıkış Yap
+                                        </button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <a class="dropdown-item" href="/Login/Singin/">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">Giriş Yap</span>
+                                    </a>
+                                }
+                            </li>
+                        </ul>
+                    </li>
+                    <!--/ User -->
+                }
+            }
+        </ul>
+    </div>
+</nav>

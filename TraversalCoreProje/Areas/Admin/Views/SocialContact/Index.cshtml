@@ -1,0 +1,102 @@
+﻿@model List<SocialContact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Content -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6 col-12 mb-md-0 mb-4">
+                <div class="card">
+                    <h5 class="card-header">Sosyal Medya Aktif-Pasif Yönetin</h5>
+                    <div class="card-body">
+                        <p>Bu alanda sosyal medya iconlarını yönetebilirsiniz.</p>
+                        @foreach (var item in Model)
+                        {
+                            <!-- Connections -->
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0">
+                                    <img src="@item.İcon" alt="google" class="me-3" height="30" />
+                                </div>
+                                <div class="flex-grow-1 row">
+                                    <div class="col-9 mb-sm-0 mb-2">
+                                        <h6 class="mb-0">@item.Name</h6>
+                                        @if (item.Status == false)
+                                        {
+                                            <small class="text-muted">Pasif</small>
+                                        }
+                                        else
+                                        {
+                                            <small class="text-muted">Aktif</small>
+                                        }
+                                    </div>
+                                    <div class="col-3 text-end">
+                                        <div class="form-check form-switch">
+                                            @if (item.Status == true)
+                                            {
+                                                <input class="form-check-input float-end" type="checkbox" id="toggleStatus_@item.SocialContactId" checked onchange="toggleStatus('@item.SocialContactId', this.checked)">
+                                            }
+                                            else
+                                            {
+                                                <input class="form-check-input float-end" type="checkbox" id="toggleStatus_@item.SocialContactId" onchange="toggleStatus('@item.SocialContactId', this.checked)">
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Connections -->
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="card">
+                    <h5 class="card-header">Social Hesap Ekle</h5>
+                    <div class="card-body">
+                        <p>Bu alanda sosyal medya bağlantıları ekleyebilir ve onları dilediğiniz zaman güncelleyebilirsiniz.</p>
+                        <!-- Social Accounts -->
+                        @foreach (var item in Model)
+                        {
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0">
+                                    <img src="@item.İcon" alt="facebook" class="me-3" height="30" />
+                                </div>
+                                <div class="flex-grow-1 row">
+                                    <div class="col-8 col-sm-7 mb-sm-0 mb-2">
+                                        <h6 class="mb-0">@item.Name</h6>
+                                        @if (item.Status == false)
+                                        {
+                                            <small class="text-muted">Bağlantı Yok</small>
+                                        }
+                                        else
+                                        {
+                                            <small class="text-muted"><a href="@item.Url">Bağlandı</a></small>
+                                        }
+                                    </div>
+                                    <div class="col-4 col-sm-5 text-end">
+                                        @if (item.Status == true)
+                                        {
+                                            <a href="/Admin/SocialContact/EditContact/@item.SocialContactId" type="button" class="btn btn-outline-success">
+                                                <i class="bx bx-link-alt">Güncelle</i>
+                                            </a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <!-- /Social Accounts -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Content -->
+<script>
+    function toggleStatus(contactId, isChecked) {
+        var url = isChecked ? "/Admin/SocialContact/ChangeToTrue/" : "/Admin/SocialContact/ChangeToFalse/";
+        window.location.href = url + contactId;
+    }
+</script>

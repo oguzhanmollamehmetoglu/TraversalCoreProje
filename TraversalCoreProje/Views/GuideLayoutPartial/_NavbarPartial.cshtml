@@ -1,0 +1,148 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+@{
+    var rolename = Context.User.Identity.Name;
+    var isAuthenticated = Context.User.Identity.IsAuthenticated;
+    var User = false;
+
+    if (isAuthenticated)
+    {
+        var user = await UserManager.GetUserAsync(Context.User);
+        ViewBag.v1 = user.Name;
+        ViewBag.v2 = user.SurName;
+        ViewBag.v3 = user.İmageUrl;
+        ViewBag.id = user.Id;
+        ViewBag.gender = user.Gender;
+        User = await UserManager.IsInRoleAsync(user, "Admin");
+        User = await UserManager.IsInRoleAsync(user, "Guide");
+    }
+}
+<nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
+    <div class="navbar-wrapper">
+        <div class="navbar-container content">
+            <div class="collapse navbar-collapse show" id="navbar-mobile">
+                <ul class="nav navbar-nav mr-auto float-left">
+                    <li class="nav-item d-block d-md-none">
+                        <a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a>
+                    </li>
+                    <li class="nav-item d-none d-md-block">
+                        @if (ViewBag.gender == "Erkek")
+                        {
+                            <h4 class="content-header-title" style="color: white;">Hoş Geldiniz @ViewBag.v1 <span>Bey</span></h4>
+                        }
+                        else if (ViewBag.gender == "Kadın")
+                        {
+                            <h4 class="content-header-title" style="color: white;">Hoş Geldiniz @ViewBag.v1 <span>Hanım</span></h4>
+                        }
+                        else
+                        {
+                            <h4 class="content-header-title" style="color: white;">Hoş Geldiniz @ViewBag.v1</h4>
+                        }
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav float-right">
+                    @* <li class="nav-item dropdown navbar-search">
+                    <a class="nav-link dropdown-toggle hide" data-toggle="dropdown" href="#"><i class="ficon ft-search"></i></a>
+                    <ul class="dropdown-menu">
+                    <li class="arrow_box">
+                    <form>
+                    <div class="input-group search-box">
+                    <div class="position-relative has-icon-right full-width">
+                    <input class="form-control" id="search" type="text" placeholder="Ara...">
+                    <div class="form-control-position navbar-search-close"><i class="ft-x">   </i></div>
+                    </div>
+                    </div>
+                    </form>
+                    </li>
+                    </ul>
+                    </li> *@
+                    <li class="dropdown dropdown-language nav-item">
+                        <a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-tr"></i><span class="selected-language"></span></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-flag">
+                            <div class="arrow_box">
+                                <a class="dropdown-item" href="/Guides/Dashboard/Index/?culture=en"><i class="flag-icon flag-icon-us"></i> English</a>
+                                <a class="dropdown-item" href="/Guides/Dashboard/Index/?culture=tr"><i class="flag-icon flag-icon-tr"></i> Turkish</a>
+                                <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-cn"></i> Chinese</a>
+                                <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-ru"></i> Russian</a>
+                                <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-fr"></i> French</a>
+                                <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-es"></i> Spanish</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav float-right">
+                    @*<li class="dropdown dropdown-notification nav-item">
+                    <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-mail"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                    <div class="arrow_box_right">
+                    <a class="dropdown-item" href="#"><i class="ft-book"></i> Mesaj</a>
+                    <a class="dropdown-item" href="#"><i class="ft-bookmark"></i> Sonra oku</a>
+                    <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Okundu olarak işaretle</a>
+                    </div>
+                    </div>
+                    </li>
+                    *@
+                    @if (!string.IsNullOrEmpty(rolename))
+                    {
+                        if (User)
+                        {
+                            <li class="dropdown dropdown-user nav-item">
+                                <a class="dropdown-toggle nav-link dropdown-user-link" data-toggle="dropdown">
+                                    <span class="avatar avatar-online">
+                                        <img style="width: 40px; height:40px;" src="/userimages/@ViewBag.v3" alt="avatar"><i></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <div class="arrow_box_right"></div>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/Guides/Profile/Index/">
+                                            <span class="avatar avatar-online">
+                                                <img style="width: 40px; height:40px;" src="/userimages/@ViewBag.v3" alt="avatar">
+                                                <span class="user-name text-bold-700 ml-1">@ViewBag.v1 @ViewBag.v2</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider"></div>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/Guides/Profile/Edit/"><i class="ft-user"></i>Profil</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/Guides/Settings/Index/"><i class="ft-settings"></i> Ayarlar</a>
+                                    </li>
+                                    @* <a class="dropdown-item" href="#"><i class="ft-mail"></i> Mesajlar</a>
+                            <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Yorumlar</a>
+                            <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Sohbet</a>*@
+                                    <li>
+                                        <div class="dropdown-divider"></div>
+                                    </li>
+                                    <li>
+                                        @if (!string.IsNullOrEmpty(rolename))
+                                        {
+                                            <form method="post" class="dropdown-item" action="/Login/Logout/">
+                                                <button class="align-middle" style="border: none; background: none;">
+                                                    <i class="ft-power"></i>Çıkış Yap
+                                                </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <a class="dropdown-item" href="/Login/Singin/">
+                                                <i class="ft-power"></i>
+                                                <span class="align-middle">Giriş Yap</span>
+                                            </a>
+                                        }
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

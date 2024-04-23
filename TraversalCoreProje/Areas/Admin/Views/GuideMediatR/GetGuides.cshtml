@@ -1,0 +1,40 @@
+﻿@model GetGuideByİdQueryResult
+@{
+    ViewData["Title"] = "GetGuides";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h1 class="card-header">Rehber Bilgi Düzenleme Sayfası</h1>
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" asp-for="GuideID" />
+            <div class="form-group">
+                @Html.Label("Ad-Soyad")
+                <input type="text" asp-for="Name" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("İnstagram Url")
+                <input type="text" asp-for="InstagramUrl" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Twitter Url")
+                <input type="text" asp-for="TwitterUrl" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Görsel")
+                <input type="text" asp-for="Image" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                @Html.Label("Açıklama")
+                <textarea cols="30" rows="5" class="form-control" asp-for="Description"></textarea>
+            </div>
+            <br />
+            <button class="btn btn-outline-primary">Güncelle</button>
+        </form>
+    </div>
+</div>
