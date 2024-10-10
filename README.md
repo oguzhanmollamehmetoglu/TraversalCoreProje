@@ -111,6 +111,7 @@ Asp.Net Core MVC 6.0 kullanılarak geliştirilen bu uygulama, Entity Framework C
 
 <img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/anasayfa.png"/>
 <img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/anasayfageceteması.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/diagram.png"/>
 <img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/iletişim.png"/>
 <img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/öneçıkanlar.png"/>
 <img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rehberler.png"/>
