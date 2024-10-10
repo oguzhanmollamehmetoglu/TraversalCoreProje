@@ -108,3 +108,31 @@ Asp.Net Core MVC 6.0 kullanılarak geliştirilen bu uygulama, Entity Framework C
     </ul>
   </li>
 </ul>
+
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/anasayfa.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/anasayfageceteması.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/iletişim.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/öneçıkanlar.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rehberler.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rehber2.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rehberdetayları.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/popüler tur rotaları.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rotalar.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rotadetayları.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rotadetayları2.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/yorumlar.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/yorumekle.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/müşteriyorumları.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/giriş.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/adminpaneli.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/adminrotalaryönet.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/mesajlariletişim.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/sosyalmedya düzenleme.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rotalaryönetme.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rotalarıyönetme2.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/kullanıcıpaneli.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/temadüzenleme.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/aktifrezervasyon.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/onaybekleyenrezervasyonlar.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rezervasyon oluşturma.png"/>
+<img src="https://github.com/oguzhanmollamehmetoglu/TraversalCoreProje/blob/master/TraversalCore%20Proje%20Foto%C4%9Fraflar%C4%B1/rehberpaneli.png"/>
